@@ -6,13 +6,15 @@
 				<span class="glow-text"> <span>Loading</span> <span>cool</span> <span>state</span> </span>
 			</div>
 		</template>
+
 		<div v-else-if="isEmpty" class="list-items">
 			<div class="wrapper-message">
 				<span class="icon-check" />
 				<p class="title-message">You have no tasks</p>
-				<p class="subtitle-message">Sit back an relax</p>
+				<p class="subtitle-message">Sit back and relax</p>
 			</div>
 		</div>
+
 		<template v-else>
 			<Task v-for="task in tasksInOrder" :key="task.id" :task="task" @archive-task="onArchiveTask" @pin-task="onPinTask" />
 		</template>
@@ -23,7 +25,7 @@ import Task from './Task.vue'
 import { reactive, computed } from 'vue'
 
 export default {
-	name: 'TaskList',
+	name: 'PureTaskList',
 	components: { Task },
 	props: {
 		tasks: { type: Array, required: true, default: () => [] },
@@ -38,9 +40,15 @@ export default {
 			tasksInOrder: computed(() => {
 				return [...props.tasks.filter((t) => t.state === 'TASK_PINNED'), ...props.tasks.filter((t) => t.state !== 'TASK_PINNED')]
 			}),
+			/**
+			 * Event handler for archiving tasks
+			 */
 			onArchiveTask(taskId) {
 				emit('archive-task', taskId)
 			},
+			/**
+			 * Event handler for pinning tasks
+			 */
 			onPinTask(taskId) {
 				emit('pin-task', taskId)
 			},

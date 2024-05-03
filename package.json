@@ -34,6 +34,7 @@
     "@storybook/addon-links": "^7.6.6",
     "@storybook/blocks": "^7.6.6",
     "@storybook/test": "^7.6.6",
+    "@storybook/test-runner": "^0.17.0",
     "@storybook/vue3": "^7.6.6",
     "@storybook/vue3-vite": "^7.6.6",
     "@vitejs/plugin-vue": "^4.0.0",
@@ -50,7 +51,8 @@
     "resolved": "^2.0.1",
     "storybook": "^7.6.6",
     "the": "^1.0.2",
-    "vite": "^4.1.4"
+    "vite": "^4.1.4",
+    "vitest": "^1.5.3"
   },
   "resolutions": {
     "jackspeak": "2.1.1"
