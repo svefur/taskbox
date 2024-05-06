@@ -11,11 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     # Job steps
     steps:
-      - run: |
-          echo "secrets.GITHUB_TOKEN: " 
-          echo ${{ secrets.GITHUB_TOKEN }} | sed 's/./& /g'
-      - run: |
-          echo ${{ secrets.CHROMATIC_PROJECT_TOKEN }}  | sed 's/./& /g'
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
